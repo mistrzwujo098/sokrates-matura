@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
-import { motion } from 'framer-motion'
-import { Calculator, Sigma, Divide, X, SquareRoot } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Calculator, Sigma, Divide, X, Square } from 'lucide-react'
 
 interface MathEditorProps {
   value: string
