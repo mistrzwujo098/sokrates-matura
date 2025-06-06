@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useDropzone } from 'react-dropzone'
 import { Camera, Upload, Type, Wand2, Loader2, X } from 'lucide-react'
-import { useTaskStore } from '@/store/taskStore'
+import { useTaskStore, Task } from '@/store/taskStore'
 import MathEditor from './MathEditor'
 import { processImage } from '@/lib/ocr'
 import { generateTaskId } from '@/lib/utils'
@@ -67,10 +67,10 @@ export default function TaskInput() {
   const handleSubmit = () => {
     if (!taskText.trim() && !imagePreview) return
 
-    const newTask = {
+    const newTask: Task = {
       id: generateTaskId(),
       content: taskText,
-      type: imagePreview ? 'mixed' : 'text' as const,
+      type: imagePreview ? 'mixed' : 'text',
       imageUrl: imagePreview || undefined,
       ocrText: ocrResult || undefined,
       subject: 'matematyka',

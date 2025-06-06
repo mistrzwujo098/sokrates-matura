@@ -1,9 +1,9 @@
-# Instrukcja naprawy błędu TypeScript dla react-katex
+# Instrukcja naprawy błędów TypeScript
 
-## Problem
+## Problem 1: Brak deklaracji typów dla react-katex
 Vercel nie mógł zbudować projektu z powodu braku deklaracji typów dla modułu 'react-katex'.
 
-## Rozwiązanie
+## Rozwiązanie problemu 1
 Wykonałem następujące kroki:
 
 1. **Dodałem @types/react-katex do package.json**
@@ -13,6 +13,20 @@ Wykonałem następujące kroki:
    - Utworzyłem folder `types/`
    - Dodałem plik `types/react-katex.d.ts` z deklaracjami typów
    - Zaktualizowałem `tsconfig.json` aby uwzględnić folder `types/`
+
+## Problem 2: Niezgodność typu dla pola 'type' w obiekcie Task
+TypeScript zgłaszał błąd w pliku `components/TaskInput.tsx` - pole `type` było rozpoznawane jako `string` zamiast union type `'text' | 'image' | 'mixed'`.
+
+## Rozwiązanie problemu 2
+
+1. **Zaimportowałem typ Task**
+   - Zmieniłem: `import { useTaskStore } from '@/store/taskStore'`
+   - Na: `import { useTaskStore, Task } from '@/store/taskStore'`
+
+2. **Dodałem explicit type annotation**
+   - Zmieniłem: `const newTask = { ... }`
+   - Na: `const newTask: Task = { ... }`
+   - Usunąłem niepotrzebne `as const`
 
 ## Co teraz musisz zrobić
 
