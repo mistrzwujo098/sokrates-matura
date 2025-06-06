@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        border: 'hsl(var(--border))',
         primary: {
           50: '#f0f4ff',
           100: '#e0e8ff',
