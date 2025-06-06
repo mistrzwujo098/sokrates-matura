@@ -9,6 +9,11 @@ Aplikacja wykorzystująca metodę sokratejską do nauki matematyki, stworzona dl
 npm install
 ```
 
+**Uwaga**: Po aktualizacji package.json (np. dodaniu nowych typów) konieczne jest ponowne uruchomienie:
+```bash
+npm install
+```
+
 ### 2. Konfiguracja API
 1. Skopiuj plik `.env.example` do `.env.local`
 2. Wpisz swój klucz API OpenAI (wymagany)
@@ -84,6 +89,8 @@ SokratesMatura/
 ├── lib/
 │   ├── ai.ts                 # Komunikacja z API
 │   └── ...
+├── types/
+│   └── react-katex.d.ts    # Własne deklaracje typów
 ├── .env.local               # Twoje klucze API (nie commituj!)
 └── .env.example             # Przykład konfiguracji
 ```
